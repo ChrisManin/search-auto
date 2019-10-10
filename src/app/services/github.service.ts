@@ -1,3 +1,4 @@
+import { environment } from './../../environments/environment';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
@@ -12,7 +13,7 @@ export class GithubService {
   constructor(private http: HttpClient) { }
 
   search(query: string): Observable<GithubResponse> {
-    const url = 'https://api.github.com/search/repositories';
+    const url = environment.GH_URL;
     return this.http
       .get<GithubResponse>(url, {
         observe: 'response',
