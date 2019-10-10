@@ -12,6 +12,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { environment } from '../environments/environment';
+import { MAT_LABEL_GLOBAL_OPTIONS } from '@angular/material/core';
 
 
 @NgModule({
@@ -30,7 +31,9 @@ import { environment } from '../environments/environment';
     MatAutocompleteModule,
     MatFormFieldModule,
   ],
-  providers: [],
+  providers: [
+    {provide: MAT_LABEL_GLOBAL_OPTIONS, useValue: {float: 'always'}}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
